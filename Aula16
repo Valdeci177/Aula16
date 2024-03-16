@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS dados_pessoais;
+
+USE dados_pessoais;
+
+CREATE TABLE IF NOT EXISTS tabela_pessoas (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(100),
+    idade INT,
+    genero VARCHAR(10),
+    nacionalidade VARCHAR(50),
+    email VARCHAR(100),
+    estado_civil VARCHAR(20),
+    nome_pai VARCHAR(100),
+    nome_mae VARCHAR(100)
+);
+
+INSERT INTO tabela_pessoas (nome_completo, idade, genero, nacionalidade, email, estado_civil, nome_pai, nome_mae) 
+VALUES 
+('João da Silva', 25, 'Masculino', 'Brasileira', 'joao.silva@example.com', 'Solteiro', 'José da Silva', 'Maria da Silva'),
+('Maria Oliveira', 30, 'Feminino', 'Portuguesa', 'maria.oliveira@example.com', 'Casado', 'Antônio Oliveira', 'Ana Oliveira'),
+('Pedro Santos', 40, 'Masculino', 'Brasileira', 'pedro.santos@example.com', 'Divorciado', 'Marcos Santos', 'Carla Santos');
+
+UPDATE tabela_pessoas
+SET nome_completo = 'Novo Nome',
+    idade = 30,
+    genero = 'Masculino',
+    nacionalidade = 'Brasileira',
+    email = 'novonome@example.com',
+    estado_civil = 'Solteiro',
+    nome_pai = 'Nome do Pai Novo',
+    nome_mae = 'Nome da Mãe Nova'
+WHERE ID = 101;
+
+DELETE FROM tabela_pessoas
+WHERE ID = 203;
